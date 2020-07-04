@@ -9,15 +9,21 @@ class PertanyaanController extends Controller
 {
     public function index() {
         $rows = PertanyaanModel::get_all();
-        return view('pertanyaan.index');
+        return view('pertanyaan.index', ['rows' => $rows]);
     }
 
     public function create() {
-        return view('pertanyaan.form');
+        $today = date('Y-m-d H:i:s');
+        return view('pertanyaan.form', ['today' => $today]);
     }
 
     public function store(Request $request) {
-        $new_question = PertanyaanModel::save($request);
+        $data = request()->except(['_token']);
+        $new_question = PertanyaanModel::save($data);
         return redirect('/pertanyaan');
+    }
+
+    public function detail(Request $request) {
+        
     }
 }
