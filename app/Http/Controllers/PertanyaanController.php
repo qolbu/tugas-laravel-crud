@@ -23,7 +23,9 @@ class PertanyaanController extends Controller
         return redirect('/pertanyaan');
     }
 
-    public function detail(Request $request) {
-        
+    public function show($id) {
+        $pertanyaan = PertanyaanModel::getOne($id);
+        $today = date('Y-m-d H:i:s');
+        return view('pertanyaan.detail', ['rows' => $pertanyaan, 'today' => $today]);
     }
 }

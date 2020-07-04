@@ -17,7 +17,8 @@ class JawabanController extends Controller
     }
 
     public function store(Request $request) {
-        $new_question = JawabanModel::save($request);
-        return redirect('/jawaban');
+        $data = request()->except(['_token']);
+        $new_question = JawabanModel::save($data);
+        return redirect('/show/'.$data['pertanyaan_id']);
     }
 }

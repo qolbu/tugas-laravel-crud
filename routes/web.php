@@ -19,8 +19,8 @@ Route::get('/', function()
 
 Route::get('/pertanyaan', 'PertanyaanController@index');
 Route::get('/pertanyaan/create', 'PertanyaanController@create');
+Route::get('/show/{id}', 'PertanyaanController@show');
 Route::post('/pertanyaan', 'PertanyaanController@store');
-Route::get('/jawaban/{pertanyaan_id}', 'PertanyaanController@index');
-Route::post('/jawaban/{pertanyaan_id}', 'PertanyaanController@store');
+Route::post('/jawaban', 'JawabanController@store');
 
 

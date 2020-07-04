@@ -28,6 +28,12 @@ class PertanyaanModel {
                                 ->delete();
         return $delete_pertanyaan;
     }
+
+    public static function getOne($id) {
+        $item = DB::table('pertanyaan')->where('id', $id)
+                                        ->first();
+        return $item;
+    }
 }
 
 ?>

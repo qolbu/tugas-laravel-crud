@@ -20,6 +20,7 @@
 <!-- Main content -->
 <section class="content">
 <!-- Default box -->
+<button type="button" class="btn btn-primary mb-2" onClick="window.location='/pertanyaan/create'">Ajukan Pertanyaan</button>
 <div class="card">
       <div class="card-header">
         <h3 class="card-title">Daftar Pertanyaan</h3>
@@ -35,7 +36,7 @@
           <tbody>
           @foreach($rows as $row)
           <tr>
-            <td><a href="/pertanyaan/{{$row->id}}">{{$row->judul}}</a></td>
+            <td><a href="/show/{{$row->id}}">{{$row->judul}}</a></td>
           </tr>
           
           @endforeach
@@ -49,13 +50,13 @@
       </div>
       <!-- /.card-body -->
     </div>
-
 </section>
 <!-- /.content -->
 
 @push('scripts')
 <script src="{{ asset('plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable();
